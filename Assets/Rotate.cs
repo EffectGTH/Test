@@ -3,7 +3,7 @@ using UnityEngine;
 public class Rotate : MonoBehaviour
 {
     [SerializeField] private GameObject cubePrefab;
-    [SerializeField] private int cubeCount = 8;
+    [SerializeField] private int cubeCount = 10;
     [SerializeField] private bool isArranged = true;
     [SerializeField] private float distance = 30f;
     [SerializeField] private float radius = 5f;
@@ -36,9 +36,9 @@ public class Rotate : MonoBehaviour
 
         int direction = isClockwise ? 1 : -1;
         currentAngle += direction * speed * Time.deltaTime;
-        float angleDifference = isArranged ? 360f / cubeCount : distance;
+        float angleDifference = isArranged ? 360f / cubes.Length : distance;
 
-        for (int i = 0; i < cubeCount; i++)
+        for (int i = 0; i < cubes.Length; i++)
         {
             float angle = (currentAngle + (i * angleDifference)) * Mathf.Deg2Rad;
 
